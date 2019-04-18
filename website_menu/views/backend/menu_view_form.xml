@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="website_menu_menu_level_tree_view" model="ir.ui.view">
+        <field name="name">website.menu.level.list</field>
+        <field name="model">website.menulevel</field>
+        <field name="arch" type="xml">
+            <tree string="Website Menu Tree View" default_order="sequence">
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="url"/>
+                <field name="area"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="website_menu_menu_level_form_view" model="ir.ui.view">
+        <field name="name">website.menu.level.form</field>
+        <field name="model">website.menulevel</field>
+        <field name="arch" type="xml">
+            <form string="Website Menu Form View">
+                <sheet>
+                    <group>
+                        <field name="sequence"/>
+                        <field name="name"/>
+                        <field name="url"/>
+                        <field name="area"/>
+                        <field name="parent_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_website_menu_list" model="ir.actions.act_window">
+        <field name="name">Website Menus Level</field>
+        <field name="res_model">website.menulevel</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="website_menu_menu_level_tree_view"/>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem name="Menus/Level" id="menu_website_menu_level" action="action_website_menu_list" parent="website.menu_website_global_configuration" sequence="30"/>
+</odoo>
