@@ -7,6 +7,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/backend/menu_view_form.xml',
+        'views/frontend/menu.xml',
     ],
     'application': True,
 }

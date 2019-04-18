@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="menu" inherit_id="portal.frontend_layout">
+    <xpath expr="//div[@id='top_menu_collapse']" position="replace">
+        <div class="collapse navbar-collapse" id="top_menu_collapse">
+            <t t-set="menus" t-value="request.env['website.menulevel'].search([('area','=','area_1'),('parent_id','=',False)])"/>
+            <t t-raw="menus"/>
+            <ul class="nav navbar-nav ml-auto text-right" id="top_menu">
+                <t t-foreach="menus" t-as="menu">
+                    <li><a class="nav-link" t-att-href="menu.url" t-att-alt="menu.name"><t t-esc="menu.name"/></a></li>
+                </t>
+            </ul>
+        </div>
+    </xpath>
+
+</template>
+
+
+</odoo>
